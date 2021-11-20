@@ -15,14 +15,5 @@ class Button extends React.Component {
         )
     }
 }
-
-// export class Text extends React.Component {
-//     render() {
-//         return (
-
-//         )
-//     }
-// }
-
 export default Button
 
