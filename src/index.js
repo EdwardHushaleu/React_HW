@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Content from './Result';
+import { Wrapper } from './components/Wrapper/Wrapper';
 
 
 ReactDOM.render(
-  <Content />,
+  <Wrapper />,
   document.getElementById('root')
 );
 
