@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const Action = ({minusCounter, plusCounter}) => {
-    
+export const Action = ({ minusCounter, plusCounter }) => {
+
     return (
         <div>
             <button onClick={() => {
@@ -18,5 +18,5 @@ export const Action = ({minusCounter, plusCounter}) => {
     )
 }
 
- 
+
 

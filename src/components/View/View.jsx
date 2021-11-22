@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const View = ({counter}) => {
+export const View = ({ counter }) => {
 
     return (
         <div>
