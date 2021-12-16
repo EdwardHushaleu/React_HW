@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const View = ({ counter }) => {
+export const View = (props) => {
 
     return (
         <div>
-            Clicks how much {counter}
+            Clicks how much {props.counter}
         </div>
     )
 

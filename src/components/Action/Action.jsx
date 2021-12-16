@@ -1,22 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export const Action = ({ plusCounter }) => {
+ const Action = (props) => {
 
     return (
         <div>
             <button onClick={() => {
-                plusCounter(true)
+                props.plusCounter(true)
             }}>
                 Click +
             </button>
             <button onClick={() => {
-                plusCounter(false)
+                props.plusCounter(false)
             }}>
                 Click -
             </button>
+
+
+
         </div>
     )
 }
+
+export default Action
 
 
 
