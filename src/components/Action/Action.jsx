@@ -15,9 +15,6 @@ import { Link } from 'react-router-dom';
             }}>
                 Click -
             </button>
-
-
-
         </div>
     )
 }

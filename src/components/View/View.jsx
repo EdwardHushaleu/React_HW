@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const View = (props) => {
+const View = (props) => {
 
     return (
         <div>
@@ -9,3 +9,5 @@ export const View = (props) => {
     )
 
 }
+
+export default View
