@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import Action from "../Action/Action";
-import View from "../View/View";
+import { View } from "../View/View";
 
-const Counter = (props) => {
 
-    let [counter, setCounter] = useState(0);
 
-    const plusCounter = (arg) => {
+export const Counter: React.FC = () => {
+
+    let [counter, setCounter] = useState<number>(0);
+
+    const plusCounter1 = (arg: boolean) :void => {
         (arg) ? setCounter(++counter) : setCounter(--counter);
     }
 
     return (
         <div>
             <Action
-                plusCounter={plusCounter}
+                plusCounter={plusCounter1}
             />
             <View
                 counter={counter}
@@ -22,4 +24,3 @@ const Counter = (props) => {
     )
 }
 
-export default Counter

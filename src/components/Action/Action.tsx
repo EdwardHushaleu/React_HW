@@ -1,17 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
- const Action = (props) => {
+interface PropsFooCounter {
+    plusCounter: (arg: boolean) => void;
+}
 
+
+const Action: React.FC<PropsFooCounter> = (plusCounter) => {
+    console.log(plusCounter)
     return (
         <div>
             <button onClick={() => {
-                props.plusCounter(true)
+                plusCounter.plusCounter(true)
             }}>
                 Click +
             </button>
             <button onClick={() => {
-                props.plusCounter(false)
+                plusCounter.plusCounter(false)
             }}>
                 Click -
             </button>
