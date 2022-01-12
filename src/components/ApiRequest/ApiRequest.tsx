@@ -16,8 +16,7 @@ interface IUser {
     email: string;
 }
 
-
-export const ApiReques: React.FC = () => {
+export const ApiRequest: React.FC = () => {
     const [error, setError] = useState<ErrorEvent>(null!);
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [users, setUsers] = useState<Array<IUser>>([]);
@@ -27,19 +26,15 @@ export const ApiReques: React.FC = () => {
         fetch('https://randomuser.me/api/?results=5')
             .then(res => res.json())
             .then(result => {
-                setIsLoaded(true);
                 setUsers(result.results);
-                console.log(result.results, 'requestAPi')
+                setIsLoaded(true);
             },
                 (error) => {
                     setIsLoaded(true);
                     setError(error);
-                    console.log(error)
                 }
             )
     }, [])
-
-    
 
     if (!isLoaded) {
         return <div>Загрузка...</div>
@@ -49,11 +44,9 @@ export const ApiReques: React.FC = () => {
         return <div>Ошибка {error.message}</div>
     }
 
-    console.log(users)
-
     return (
         <div>
-            <ViewApi props={users}/>
+            <ViewApi props={users} />
         </div>
     )
 }
