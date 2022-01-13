@@ -1,23 +1,38 @@
 import React from 'react';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import { ApiRequest } from '../../Api/ApiRequest/ApiRequest';
 import { Counter } from "../Counter/Counter";
-import {Nav} from "../Nav/Nav";
-import {Login} from "../Login/Login";
-import {RequireAuth} from '../hoc/RequireAuth'
+import { Home } from "../Home/Home";
+
+import { Login } from "../Login/Login";
+
+import { Layout } from '../Layout/layout';
+
+import { RequireAuth } from '../hoc/RequireAuth'
+import { AuthProvider } from '../hoc/AurhProvider';
+
+
 
 export const Wrapper = () => {
 
     return (
-        <div>
-            <Routes>
-                <Route path='' element={<Nav/>}/>
-                <Route path="counter" element={<Counter />} />
-                <Route path="api" element={<ApiRequest />} />
-                <Route path="login" element={<Login />} />
-            </Routes>
-        </div>
-
+        <AuthProvider>
+            <div>
+                <Routes>
+                    
+                    <Route path='/' element={<Layout />}>
+                        <Route index element={<Home />} />
+                        <Route path="counter" element={<Counter />} />
+                        <Route path="api" element={
+                          <RequireAuth>
+                              <ApiRequest/>
+                          </RequireAuth>  
+                        }/>
+                        <Route path="login" element={<Login />} />
+                    </Route>
+                </Routes>
+            </div>
+        </AuthProvider>
     )
 }
 
