@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
-import { ViewApi } from '../ViewApi/ViewApi';
+import { ViewApi } from '../../components/ViewApi/ViewApi';
 
 interface IUser {
     name: {

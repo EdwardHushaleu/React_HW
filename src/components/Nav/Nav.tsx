@@ -7,9 +7,9 @@ export const Nav = () => {
     return (
         <div>
             <Link to="/counter">Counter</Link>
-            <br />
+            <br/>
             <Link to="/api">Api</Link>
         </div>
     )
-}
+} 
 
