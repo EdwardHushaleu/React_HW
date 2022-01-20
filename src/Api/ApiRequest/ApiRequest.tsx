@@ -16,6 +16,7 @@ interface IUser {
     email: string;
 }
 
+
 const initialState = {
     error: null,
     isLoaded: false,
@@ -24,22 +25,34 @@ const initialState = {
 
 function reducer(state: any, action: any) {
     switch (action.type) {
-        case 'set-error':
-            return {...state, error: action.error };
-        case 'set-isloaded':
-            return { ...state, isLoaded: action.isLoaded };
-        case 'set-users':
-            return { ...state,users: action.users }
+        case 'error':
+            return { ...state, error: action.error };
+        case 'is_loaded':
+            return { ...state, isLoaded: action.isloaded };
+        case 'users':
+            return { ...state, users: action.users };
         default:
             throw new Error();
     }
-
 }
 
+// function reducer(state: any, action: any) {
+//     switch (action.type) {
+//         case 'error':
+//             return { ...state, error: action.error };
+//         case 'is_loaded':
+//             return { ...state, isLoaded: action.isLoaded };
+//         case 'users':
+//             return { ...state, users: action.users };
+//         default:
+//             throw new Error();
+//     }
+// }//
+
 export const ApiRequest: React.FC = () => {
-    // const [error, setError] = useState<ErrorEvent>(null!);
-    // const [isLoaded, setIsLoaded] = useState<boolean>(false);
-    // const [users, setUsers] = useState<Array<IUser>>([]);
+    // const [error, setError] = useState(null);
+    // const [isLoaded, setIsLoaded] = useState(false);
+    // const [users, setUsers] = useState([]);
     const [state, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
@@ -47,10 +60,10 @@ export const ApiRequest: React.FC = () => {
         fetch('https://randomuser.me/api/?results=5')
             .then(res => res.json())
             .then(
-                result => dispatch({type: 'set-users', users: result.results }),
-                (error) => dispatch({type: 'set-error', error: error }),
+                result => dispatch({type: 'users', users: result.results }),
+                (error) => dispatch({type: 'error', error: error }),
             )
-            .finally(()=> dispatch({type: 'set-isloaded', isLoaded: true }))
+            .finally(()=> dispatch({type: 'is_loaded', isLoaded: true }))
     }, [])
 
     if (!state.isLoaded) {
