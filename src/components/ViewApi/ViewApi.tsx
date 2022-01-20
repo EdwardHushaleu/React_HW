@@ -1,16 +1,11 @@
 import React from 'react';
 
-
 interface PropsUser {
     props?: any
 
 }
 
-
-
-
 export const ViewApi: React.FC<PropsUser> = ({ props }) => {
-    console.log(props, 'apiprops')
     return (
         <div>
             <div>

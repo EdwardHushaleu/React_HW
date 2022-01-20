@@ -1,12 +1,8 @@
-import React from 'react';
-
-interface PropsFooCounter {
-    plusCounter: (arg: boolean) => void;
-}
+import React,{} from 'react';
 
 
-const Action: React.FC<PropsFooCounter> = (plusCounter) => {
-    console.log(plusCounter)
+const Action: React.FC<{plusCounter: (arg: boolean) => void}> = (plusCounter) => {
+    
     return (
         <div>
             <button onClick={() => {

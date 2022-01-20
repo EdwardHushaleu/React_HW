@@ -1,37 +1,34 @@
 import React from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
-import {useAuth} from '../hook/useAuth';
+import { useAuth } from '../hook/useAuth';
 
-interface LoginProps {
-    
-}
- 
-const Login: React.FC<LoginProps> = () => {
+const Login: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const {signin} = useAuth();
-    
-    const fromPage = location.state?.from?.pathname || '/';
+    const { signin } = useAuth();
 
-    const handleSubmit = (event: any) => {
+    const fromPage: string = location.state?.from?.pathname;
+    const handleSubmit = (event:React.ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         const form = event.target;
-        const user = form.username.value;
+        const user: string = form.username.value
         
-        signin(user, () => navigate(fromPage,{replace: true}));
+        signin(user, () => navigate(fromPage, { replace: true }));
     }
 
-    return ( 
+    return (
         <div>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Name: <input name="username"/>
+                    Name: <input name="username" />
                 </label>
                 <button type='submit'>Login</button>
             </form>
-        </div> 
+        </div>
     );
 }
- 
-export {Login};
+
+export { Login };
+
+//React.SyntheticEvent<HTMLFormElement | HTMLInputTypeAttribute>

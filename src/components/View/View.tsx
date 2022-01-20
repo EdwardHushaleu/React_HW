@@ -5,7 +5,6 @@ interface PropsCounter{
 }
 
 export const View: React.FC<PropsCounter> = (counter) => {
-
     return (
         <div>
             Clicks how much {counter.counter}
